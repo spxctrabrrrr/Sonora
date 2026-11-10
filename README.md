@@ -55,10 +55,4 @@ También incluye tema claro (botón en la navegación, se recuerda entre visitas
 - **Fuentes por Google Fonts** con `<link>` en el layout, como indica Tailwind.md, sin tocar `vite.config.js`.
 - **Reutilicé** `Button`, `Chip`, `MediaCard`, `SongRow`, `Progress` y `SearchField` del sistema; `icon-button`, `cover` y `player-bar` son piezas derivadas para cubrir los íconos, las portadas de marcador y la barra del reproductor.
 
-### Qué cambiaría
 
-Completa esta parte con tu criterio antes de entregar. Ideas: mover los datos a un modelo `Track` con migración y seeder, conectar un elemento `<audio>` al mismo estado, y probar el contraste de cada pantalla en ambos temas con una herramienta automática.
-
-## Capturas
-
-Guarda las capturas de cada pantalla (tema oscuro, y claro si lo entregas) en `docs/capturas/`.
