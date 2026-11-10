@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/*
+ * Tokens de Sonora (tokens.json del sistema de diseño).
+ * Estos son los únicos valores hexadecimales del proyecto: todo lo demás
+ * usa clases semánticas (bg-surface-raised, text-ink-muted, etc.).
+ */
+:root,
+[data-theme='dark'] {
+    --surface-base: #0e0e10;
+    --surface-raised: #18181b;
+    --surface-high: #26262b;
+    --line: #3a3a42;
+    --line-strong: #7a7a86;
+    --ink: #f4f2ee;
+    --ink-muted: #a9a9b4;
+    --accent: #ffb020;
+    --accent-hover: #ffc24d;
+    --on-accent: #14110a;
+    --success: #5ec8e5;
+    --danger: #ff6b5b;
+    --focus: #8fd3ff;
+}
+
+[data-theme='light'] {
+    --surface-base: #faf8f4;
+    --surface-raised: #ffffff;
+    --surface-high: #ece8e0;
+    --line: #d9d4c9;
+    --line-strong: #6b665c;
+    --ink: #17151a;
+    --ink-muted: #55525c;
+    --accent: #a65500;
+    --accent-hover: #8a4500;
+    --on-accent: #ffffff;
+    --success: #0a6d8f;
+    --danger: #b3261e;
+    --focus: #0b5cad;
+}
+
+@theme inline {
+    --color-surface-base: var(--surface-base);
+    --color-surface-raised: var(--surface-raised);
+    --color-surface-high: var(--surface-high);
+    --color-line: var(--line);
+    --color-line-strong: var(--line-strong);
+    --color-ink: var(--ink);
+    --color-ink-muted: var(--ink-muted);
+    --color-accent: var(--accent);
+    --color-accent-hover: var(--accent-hover);
+    --color-on-accent: var(--on-accent);
+    --color-success: var(--success);
+    --color-danger: var(--danger);
+    --color-focus: var(--focus);
+
+    --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+
+    --shadow-raise: 0 8px 24px rgb(0 0 0 / 0.4);
+
+    /* Escala tipográfica: text-display, text-title, text-heading, text-body, text-body-sm, text-caption, text-mono, text-mono-sm */
+    --text-display: 56px;
+    --text-display--line-height: 58px;
+    --text-display--font-weight: 800;
+    --text-display--letter-spacing: -0.02em;
+
+    --text-title: 32px;
+    --text-title--line-height: 36px;
+    --text-title--font-weight: 800;
+    --text-title--letter-spacing: -0.01em;
+
+    --text-heading: 20px;
+    --text-heading--line-height: 26px;
+    --text-heading--font-weight: 700;
+
+    --text-body: 16px;
+    --text-body--line-height: 24px;
+    --text-body--font-weight: 400;
+
+    --text-body-sm: 14px;
+    --text-body-sm--line-height: 20px;
+    --text-body-sm--font-weight: 500;
+
+    --text-caption: 12px;
+    --text-caption--line-height: 16px;
+    --text-caption--font-weight: 700;
+    --text-caption--letter-spacing: 0.06em;
+
+    --text-mono: 14px;
+    --text-mono--line-height: 20px;
+    --text-mono--font-weight: 400;
+
+    --text-mono-sm: 12px;
+    --text-mono-sm--line-height: 16px;
+    --text-mono-sm--font-weight: 400;
+
+    /* Movimiento: 120ms con suavizado en cursor encima y presionado */
+    --default-transition-duration: 120ms;
+    --default-transition-timing-function: ease;
+}
+
+@layer base {
+    html {
+        color-scheme: dark;
+    }
+
+    html[data-theme='light'] {
+        color-scheme: light;
+    }
+
+    body {
+        @apply bg-surface-base font-sans text-body text-ink antialiased;
+    }
+
+    /* Anillo de enfoque sólido de 3px con 2px de separación en todo elemento interactivo */
+    :focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            transition-duration: 0ms !important;
+        }
+    }
+}
